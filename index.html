@@ -144,8 +144,138 @@
   .note{font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
   footer{background:var(--black);color:#8a8a94;padding:26px 0;font-size:13px;border-top:1px solid #2a2a30}
   @media(max-width:820px){.final .cols{grid-template-columns:1fr}.nav a.link{display:none}.hero-glyphs{display:none}}
+    /* ===== ЦЕНЫ ===== */
+  .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+  .price{border:3px solid var(--black);border-radius:26px;padding:30px 26px;background:var(--white);
+         box-shadow:6px 6px 0 var(--black);position:relative;display:flex;flex-direction:column}
+  .price.hit{background:var(--lime)}
+  .price .hit-badge{position:absolute;top:-16px;right:20px;background:var(--black);color:var(--lime);
+         font-family:'Unbounded';font-size:12px;font-weight:700;padding:7px 16px;border-radius:99px}
+  .price h3{font-size:18px;margin-bottom:4px}
+  .price .fmt{font-size:13px;font-weight:800;color:var(--coral);margin-bottom:16px}
+  .price.hit .fmt{color:var(--black);opacity:.7}
+  .price .cost{font-family:'Unbounded';font-size:30px;font-weight:900;margin-bottom:4px}
+  .price .cost small{font-size:14px;font-weight:600;color:var(--muted)}
+  .price .month{font-size:14px;color:var(--muted);margin-bottom:16px}
+  .price.hit .month{color:var(--ink)}
+  .price ul{list-style:none;margin-bottom:22px;flex:1}
+  .price li{font-size:14px;padding:4px 0 4px 24px;position:relative}
+  .price li::before{content:"✓";position:absolute;left:0;font-weight:800;color:var(--coral)}
+  .price.hit li::before{color:var(--black)}
+  .price .btn{text-align:center}
+  .price-note{margin-top:26px;font-size:14px;color:var(--muted);background:var(--white);
+         border:2px dashed var(--black);border-radius:16px;padding:16px 22px}
+
+  /* ===== РАСПИСАНИЕ ===== */
+  .filters{display:flex;flex-direction:column;gap:16px;margin-bottom:34px}
+  .f-label{font-family:'Unbounded';font-size:13px;font-weight:700;margin-bottom:8px;display:block}
+  .f-row{display:flex;flex-wrap:wrap;gap:10px}
+  .f-chip{font-family:'Manrope';font-weight:800;font-size:15px;padding:10px 20px;border-radius:99px;
+         border:2px solid var(--black);background:var(--white);cursor:pointer;transition:.15s}
+  .f-chip:hover{transform:translateY(-2px)}
+  .f-chip.active{background:var(--black);color:var(--lime)}
+  .sched-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px}
+  .group{border:3px solid var(--black);border-radius:22px;padding:24px;background:var(--white);
+         box-shadow:5px 5px 0 var(--black);display:flex;flex-direction:column;gap:8px}
+  .group .g-top{display:flex;justify-content:space-between;align-items:center}
+  .group .g-lang{font-size:26px}
+  .group .g-spots{font-size:12px;font-weight:800;border-radius:99px;padding:5px 12px}
+  .g-spots.ok{background:var(--mint)}
+  .g-spots.few{background:var(--coral);color:var(--white)}
+  .g-spots.full{background:#e2e2e6;color:var(--muted)}
+  .group h4{font-family:'Unbounded';font-size:15px}
+  .group .g-time{font-size:15px;font-weight:800}
+  .group .g-meta{font-size:13px;color:var(--muted)}
+  .group .btn{padding:12px 20px;font-size:14px;text-align:center;margin-top:8px}
+  .sched-empty{border:3px dashed var(--black);border-radius:22px;padding:44px 30px;text-align:center;
+         background:var(--white);display:none}
+  .sched-empty p{font-size:16px;margin-bottom:20px;color:var(--muted)}
 </style>
 </head>
+  <script>
+/* ============ ДАННЫЕ ГРУПП — редактируйте только этот массив ============ */
+const GROUPS = [
+  // lang: en|zh|fr|ja|ko · age: 3-6|7-10|11-14|15-17 · spots: свободных мест (0 = набор закрыт)
+  {lang:'en', age:'3-6',   name:'Playtime Kids',      days:'Пн · Ср', time:'17:00–17:40', teacher:'Анна В.',    spots:3, start:'идёт набор'},
+  {lang:'en', age:'3-6',   name:'Little Stars',       days:'Сб',      time:'10:00–10:40', teacher:'Анна В.',    spots:1, start:'старт 5 октября'},
+  {lang:'en', age:'7-10',  name:'School Heroes',      days:'Вт · Чт', time:'16:30–17:30', teacher:'Мария К.',   spots:2, start:'идёт набор'},
+  {lang:'en', age:'7-10',  name:'Bright Readers',     days:'Пн · Ср', time:'18:00–19:00', teacher:'Мария К.',   spots:4, start:'старт 1 октября'},
+  {lang:'en', age:'11-14', name:'Level Up B1',        days:'Вт · Чт', time:'17:40–19:00', teacher:'Дмитрий С.', spots:2, start:'идёт набор'},
+  {lang:'en', age:'15-17', name:'ЕГЭ 80+ · поток 1',  days:'Пн · Ср', time:'19:10–20:30', teacher:'Дмитрий С.', spots:1, start:'идёт набор'},
+  {lang:'en', age:'15-17', name:'ЕГЭ 80+ · поток 2',  days:'Сб',      time:'11:00–13:40', teacher:'Дмитрий С.', spots:0, start:'группа набрана'},
+
+  {lang:'zh', age:'7-10',  name:'Нихао, Китай!',      days:'Пн · Ср', time:'17:00–18:00', teacher:'Олег Т.',    spots:3, start:'идёт набор'},
+  {lang:'zh', age:'11-14', name:'HSK 1–2',            days:'Вт · Чт', time:'18:10–19:30', teacher:'Олег Т.',    spots:2, start:'старт 8 октября'},
+  {lang:'zh', age:'15-17', name:'HSK 3 + ЕГЭ',        days:'Сб',      time:'12:00–14:00', teacher:'Олег Т.',    spots:4, start:'идёт набор'},
+
+  {lang:'fr', age:'3-6',   name:'Les Petits',         days:'Сб',      time:'11:00–11:40', teacher:'Полина М.',  spots:5, start:'идёт набор'},
+  {lang:'fr', age:'7-10',  name:'Bonjour, les amis!', days:'Вт · Чт', time:'16:30–17:30', teacher:'Полина М.',  spots:2, start:'идёт набор'},
+  {lang:'fr', age:'11-14', name:'DELF Juniors A2',    days:'Пн · Ср', time:'18:00–19:20', teacher:'Полина М.',  spots:3, start:'старт 6 октября'},
+
+  {lang:'ja', age:'11-14', name:'Аниме-клуб · старт', days:'Вт · Чт', time:'17:00–18:20', teacher:'Олег Т.',    spots:1, start:'идёт набор'},
+  {lang:'ja', age:'15-17', name:'JLPT N5',            days:'Сб',      time:'14:10–16:10', teacher:'Олег Т.',    spots:4, start:'старт 12 октября'},
+
+  {lang:'ko', age:'11-14', name:'Хангыль за месяц',   days:'Пн · Ср', time:'17:00–18:20', teacher:'Кира Л.',    spots:2, start:'идёт набор'},
+  {lang:'ko', age:'15-17', name:'K-Talk · TOPIK I',   days:'Вт · Чт', time:'18:30–19:50', teacher:'Кира Л.',    spots:3, start:'идёт набор'},
+];
+
+const LANG_META = {
+  en:{flag:'🇬🇧', name:'Английский'}, zh:{flag:'🇨🇳', name:'Китайский'},
+  fr:{flag:'🇫🇷', name:'Французский'}, ja:{flag:'🇯🇵', name:'Японский'},
+  ko:{flag:'🇰🇷', name:'Корейский'}
+};
+
+/* ============ ЛОГИКА ФИЛЬТРА ============ */
+let curLang = 'en', curAge = '7-10';
+const grid = document.getElementById('schedGrid');
+const empty = document.getElementById('schedEmpty');
+
+function spotsBadge(n){
+  if(n === 0) return '<span class="g-spots full">группа набрана</span>';
+  if(n <= 2)  return `<span class="g-spots few">🔥 осталось ${n} ${n===1?'место':'места'}</span>`;
+  return `<span class="g-spots ok">свободно ${n} мест${n===3||n===4?'а':''}</span>`;
+}
+
+function render(){
+  const items = GROUPS.filter(g => g.lang === curLang && g.age === curAge);
+  grid.innerHTML = items.map(g => `
+    <div class="group">
+      <div class="g-top"><span class="g-lang">${LANG_META[g.lang].flag}</span>${spotsBadge(g.spots)}</div>
+      <h4>${g.name}</h4>
+      <div class="g-time">${g.days} · ${g.time}</div>
+      <div class="g-meta">Педагог: ${g.teacher} · ${g.start}</div>
+      ${g.spots > 0
+        ? `<a class="btn" href="#lead" onclick="prefill('${g.lang}','${g.age}')">Забронировать место</a>`
+        : `<a class="btn btn-ghost" href="#lead" onclick="prefill('${g.lang}','${g.age}')">В лист ожидания</a>`}
+    </div>`).join('');
+  grid.style.display = items.length ? 'grid' : 'none';
+  empty.style.display = items.length ? 'none' : 'block';
+}
+
+function bindFilter(id, attr, cb){
+  document.getElementById(id).addEventListener('click', e => {
+    const chip = e.target.closest('.f-chip');
+    if(!chip) return;
+    document.querySelectorAll(`#${id} .f-chip`).forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    cb(chip.dataset[attr]);
+    render();
+  });
+}
+bindFilter('langFilter', 'lang', v => curLang = v);
+bindFilter('ageFilter',  'age',  v => curAge = v);
+
+/* ============ АВТОЗАПОЛНЕНИЕ ФОРМЫ ЗАЯВКИ ============ */
+const AGE_LABEL = {'3-6':'3–6 лет','7-10':'7–10 лет','11-14':'11–14 лет','15-17':'15–17 лет'};
+function prefill(lang, age){
+  const langSel = document.querySelector('.lead-form select[name="lang"]');
+  const ageSel  = document.querySelector('.lead-form select[name="age"]');
+  if(langSel) [...langSel.options].forEach(o => { if(o.text.includes(LANG_META[lang].name)) o.selected = true; });
+  if(ageSel)  [...ageSel.options].forEach(o => { if(o.text === AGE_LABEL[age]) o.selected = true; });
+}
+
+render();
+</script>
 <body>
 
 <!-- ================= ШАПКА ================= -->
@@ -153,9 +283,96 @@
   <div class="wrap nav">
     <a class="logo" href="#top">Up<em>Day</em></a>
     <nav>
+      <a class="link" href="#prices">Цены</a>
+<a class="link" href="#schedule">Расписание</a>
       <a class="link" href="#langs">Языки</a>
       <a class="link" href="#ages">Возраст</a>
       <a class="link" href="#method">Метод</a>
+      <!-- ================= ЭКРАН 5. ЦЕНЫ ================= -->
+<section id="prices">
+  <div class="wrap">
+    <span class="sticker">💳 прозрачно и без сюрпризов</span>
+    <h2>Цены: платите за результат,<br>а не за «часы в журнале»</h2>
+    <p class="sub">Стоимость одинакова для всех 5 языков. Первое занятие — бесплатно на любом формате.</p>
+    <div class="price-grid">
+
+      <div class="price">
+        <h3>🧸 Малыши</h3><div class="fmt">Группа до 6 · 3–6 лет · 30–40 мин</div>
+        <div class="cost">от 700 ₽ <small>/ занятие</small></div>
+        <div class="month">≈ 5 600 ₽ / месяц (8 занятий)</div>
+        <ul><li>игровой формат, песни, сказки</li><li>2 раза в неделю</li><li>отчёт родителям каждый месяц</li></ul>
+        <a class="btn btn-ghost" href="#schedule">Смотреть группы</a>
+      </div>
+
+      <div class="price hit">
+        <span class="hit-badge">выбирают чаще</span>
+        <h3>🎒 Группа</h3><div class="fmt">До 6 человек · 7–17 лет · 60–80 мин</div>
+        <div class="cost">от 900 ₽ <small>/ занятие</small></div>
+        <div class="month">≈ 7 200 ₽ / месяц (8 занятий)</div>
+        <ul><li>говорит каждый — группа до 6</li><li>план на семестр + пробники</li><li>отработка пропусков по болезни</li></ul>
+        <a class="btn btn-dark" href="#schedule">Смотреть группы</a>
+      </div>
+
+      <div class="price">
+        <h3>⚡ Мини-группа</h3><div class="fmt">2–3 человека · любой возраст</div>
+        <div class="cost">от 1 400 ₽ <small>/ занятие</small></div>
+        <div class="month">≈ 11 200 ₽ / месяц (8 занятий)</div>
+        <ul><li>максимум разговорной практики</li><li>гибкий темп под учеников</li><li>можно собрать свою мини-группу</li></ul>
+        <a class="btn btn-ghost" href="#lead">Уточнить места</a>
+      </div>
+
+      <div class="price">
+        <h3>🎯 Индивидуально</h3><div class="fmt">1 на 1 с педагогом · любой возраст</div>
+        <div class="cost">от 2 000 ₽ <small>/ занятие</small></div>
+        <div class="month">график и интенсивность — под вас</div>
+        <ul><li>ЕГЭ 80+, HSK, DELF, JLPT, TOPIK</li><li>старт с любого уровня и даты</li><li>максимальная скорость прогресса</li></ul>
+        <a class="btn btn-ghost" href="#lead">Подобрать педагога</a>
+      </div>
+
+    </div>
+    <div class="price-note">💡 <b>Скидки:</b> −10% при оплате семестра · −5% за второго ребёнка или второй язык.
+      Пропуски по болезни отрабатываем бесплатно. Точную цену вашей программы назовём после бесплатной диагностики.</div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 6. РАСПИСАНИЕ (активное) ================= -->
+<section class="ages" id="schedule">
+  <div class="wrap">
+    <span class="sticker">📅 наборы открыты</span>
+    <h2>Найдите свою группу за 10 секунд</h2>
+    <p class="sub">Выберите язык и возраст — покажем группы, в которых есть места прямо сейчас.</p>
+
+    <div class="filters">
+      <div>
+        <span class="f-label">ЯЗЫК</span>
+        <div class="f-row" id="langFilter">
+          <button class="f-chip active" data-lang="en">🇬🇧 Английский</button>
+          <button class="f-chip" data-lang="zh">🇨🇳 Китайский</button>
+          <button class="f-chip" data-lang="fr">🇫🇷 Французский</button>
+          <button class="f-chip" data-lang="ja">🇯🇵 Японский</button>
+          <button class="f-chip" data-lang="ko">🇰🇷 Корейский</button>
+        </div>
+      </div>
+      <div>
+        <span class="f-label">ВОЗРАСТ РЕБЁНКА</span>
+        <div class="f-row" id="ageFilter">
+          <button class="f-chip" data-age="3-6">🧸 3–6 лет</button>
+          <button class="f-chip active" data-age="7-10">🎒 7–10 лет</button>
+          <button class="f-chip" data-age="11-14">🎧 11–14 лет</button>
+          <button class="f-chip" data-age="15-17">🎓 15–17 лет</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sched-grid" id="schedGrid"><!-- группы рендерит JS --></div>
+
+    <div class="sched-empty" id="schedEmpty">
+      <p>😔 В этой комбинации сейчас нет открытых групп.<br>
+         Оставьте заявку — <b>откроем новую группу</b> или предложим ближайший вариант.</p>
+      <a class="btn" href="#lead">Оставить заявку на группу</a>
+    </div>
+  </div>
+</section>
       <a class="link" href="#teachers">Педагоги</a>
     </nav>
     <a class="btn" href="#lead">Бесплатный урок</a>
