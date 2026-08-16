@@ -23,4 +23,315 @@
   .sub{color:var(--muted);max-width:620px;margin-bottom:40px;font-size:18px}
   .btn{display:inline-block;font-family:'Manrope';font-weight:800;font-size:17px;text-decoration:none;
        background:var(--lime);color:var(--black);padding:18px 34px;border-radius:99px;border:none;
-       cursor:pointer;trans
+       cursor:pointer;transition:.18s;box-shadow:0 4px 0 var(--black)}
+  .btn:hover{transform:translate(0,-3px);box-shadow:0 7px 0 var(--black)}
+  .btn-dark{background:var(--black);color:var(--white);box-shadow:0 4px 0 rgba(0,0,0,.25)}
+  .btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--ink);box-shadow:none}
+  .btn-ghost:hover{background:var(--ink);color:var(--white)}
+  .center{text-align:center;margin-top:44px}
+  .sticker{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:2px solid var(--black);
+           border-radius:99px;padding:8px 18px;font-weight:800;font-size:14px;box-shadow:3px 3px 0 var(--black)}
+
+  /* ===== header ===== */
+  header{position:sticky;top:0;z-index:99;background:var(--paper);border-bottom:2px solid var(--black)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .logo{font-size:24px;font-weight:900;color:var(--ink);text-decoration:none}
+  .logo em{font-style:normal;background:var(--lime);border-radius:8px;padding:0 6px}
+  .nav a.link{color:var(--ink);text-decoration:none;margin:0 12px;font-weight:600;font-size:15px}
+  .nav a.link:hover{background:var(--lilac);border-radius:6px;padding:2px 6px}
+  .nav .btn{padding:11px 22px;font-size:14px}
+
+  /* ===== hero (Pure: чёрный + кислота + гигантский шрифт) ===== */
+  .hero{background:var(--black);color:var(--white);padding:96px 0 80px;position:relative;overflow:hidden}
+  .hero h1{font-size:clamp(34px,6vw,64px);font-weight:900;line-height:1.05;letter-spacing:-1px;margin:22px 0}
+  .hero h1 .hl{color:var(--lime)}
+  .hero p{font-size:19px;color:#cfcfd6;max-width:560px;margin-bottom:34px}
+  .lang-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+  .chip{display:inline-flex;align-items:center;gap:8px;border-radius:99px;padding:9px 18px;font-weight:800;
+        font-size:15px;color:var(--black)}
+  .chip.c1{background:var(--sky)}.chip.c2{background:var(--coral)}.chip.c3{background:var(--lilac)}
+  .chip.c4{background:var(--pink)}.chip.c5{background:var(--mint)}
+  .blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.9}
+  .b1{width:220px;height:220px;background:var(--lilac);top:-70px;right:8%;}
+  .b2{width:120px;height:120px;background:var(--lime);bottom:40px;right:22%;}
+  .b3{width:70px;height:70px;background:var(--coral);top:120px;right:30%;}
+  .hero-glyphs{position:absolute;right:4%;top:34%;font-size:clamp(40px,6vw,84px);line-height:1.3;
+               opacity:.16;font-weight:700;text-align:right;pointer-events:none;user-select:none}
+  .trust{display:flex;flex-wrap:wrap;gap:34px;margin-top:52px}
+  .trust b{display:block;font-family:'Unbounded';font-size:24px;color:var(--lime)}
+  .trust span{font-size:13px;color:#a8a8b2}
+
+  /* ===== marquee ===== */
+  .marquee{background:var(--lime);border-top:2px solid var(--black);border-bottom:2px solid var(--black);
+           overflow:hidden;padding:14px 0;white-space:nowrap}
+  .marquee span{display:inline-block;font-family:'Unbounded';font-weight:700;font-size:18px;
+                animation:mq 22s linear infinite}
+  @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ===== языки: колода «свайп-карточек» как в Pure ===== */
+  .deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px}
+  .lang{border:3px solid var(--black);border-radius:26px;padding:28px 22px;background:var(--white);
+        box-shadow:7px 7px 0 var(--black);transition:.2s;position:relative;text-decoration:none;color:var(--ink)}
+  .lang:hover{transform:translateY(-8px) rotate(0deg)!important;box-shadow:10px 12px 0 var(--black)}
+  .lang:nth-child(1){transform:rotate(-2deg);background:var(--sky)}
+  .lang:nth-child(2){transform:rotate(1.5deg);background:var(--coral)}
+  .lang:nth-child(3){transform:rotate(-1deg);background:var(--lilac)}
+  .lang:nth-child(4){transform:rotate(2deg);background:var(--pink)}
+  .lang:nth-child(5){transform:rotate(-1.5deg);background:var(--mint)}
+  .lang .flag{font-size:44px;display:block;margin-bottom:10px}
+  .lang h3{font-size:19px;font-weight:900;margin-bottom:6px}
+  .lang .hello{font-size:15px;font-weight:800;opacity:.65;margin-bottom:12px}
+  .lang p{font-size:14px;line-height:1.5;margin-bottom:16px}
+  .lang .go{font-weight:800;font-size:14px;border-bottom:2px solid var(--black)}
+
+  /* ===== возраст ===== */
+  .ages{background:var(--white)}
+  .age-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+  .age{border:3px solid var(--black);border-radius:22px;padding:26px;background:var(--paper);box-shadow:6px 6px 0 var(--black)}
+  .age .emo{font-size:40px;display:block;margin-bottom:10px}
+  .age h3{font-size:18px;margin-bottom:6px}
+  .age .badge{display:inline-block;background:var(--black);color:var(--lime);border-radius:99px;
+              padding:4px 14px;font-weight:800;font-size:13px;margin-bottom:12px}
+  .age p{font-size:14px;color:var(--muted)}
+  .age li{font-size:14px;list-style:none;padding:4px 0 4px 24px;position:relative}
+  .age li::before{content:"★";position:absolute;left:0;color:var(--coral)}
+
+  /* ===== метод ===== */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+  .step{border:3px solid var(--black);border-radius:22px;padding:28px;background:var(--white);box-shadow:6px 6px 0 var(--black)}
+  .step .num{font-family:'Unbounded';font-size:34px;font-weight:900;color:var(--coral);display:block;margin-bottom:10px}
+  .step h3{font-size:18px;margin-bottom:8px}
+  .step p{font-size:14px;color:var(--muted)}
+
+  /* ===== педагоги ===== */
+  .teachers{background:var(--white)}
+  .t-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+  .t-card{border:3px solid var(--black);border-radius:26px;overflow:hidden;background:var(--paper);box-shadow:6px 6px 0 var(--black)}
+  .t-photo{height:180px;display:flex;align-items:center;justify-content:center;font-size:74px}
+  .t-card:nth-child(1) .t-photo{background:linear-gradient(135deg,var(--sky),var(--lilac))}
+  .t-card:nth-child(2) .t-photo{background:linear-gradient(135deg,var(--coral),var(--pink))}
+  .t-card:nth-child(3) .t-photo{background:linear-gradient(135deg,var(--mint),var(--sky))}
+  .t-body{padding:22px}
+  .t-body h3{font-size:17px}
+  .t-body .role{font-size:13px;font-weight:800;color:var(--coral);margin:4px 0 10px}
+  .t-body p{font-size:14px;color:var(--muted)}
+  .t-body blockquote{font-size:13px;font-style:italic;margin-top:10px;border-left:3px solid var(--lime);padding-left:10px}
+
+  /* ===== кейсы ===== */
+  .case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+  .case{border:3px solid var(--black);border-radius:22px;padding:26px;background:var(--white);box-shadow:6px 6px 0 var(--black)}
+  .case .delta{font-family:'Unbounded';font-size:19px;font-weight:900;margin-bottom:12px}
+  .case .delta b{background:var(--lime);border-radius:8px;padding:0 8px}
+  .case p{font-size:14px;color:var(--muted)}
+  .case blockquote{font-size:13px;font-style:italic;margin-top:12px;color:var(--ink)}
+
+  /* ===== faq ===== */
+  details{background:var(--white);border:3px solid var(--black);border-radius:18px;
+          padding:18px 24px;margin-bottom:14px;box-shadow:4px 4px 0 var(--black)}
+  summary{font-weight:800;cursor:pointer;font-size:16px}
+  details p{margin-top:10px;color:var(--muted);font-size:15px}
+
+  /* ===== форма (чёрный CTA-блок как в Pure) ===== */
+  .final{background:var(--black);color:var(--white);position:relative;overflow:hidden}
+  .final .cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .final h2 .hl{color:var(--lime)}
+  .final .sub{color:#cfcfd6}
+  .lead-form{background:var(--white);border-radius:26px;padding:34px;color:var(--ink);
+             border:3px solid var(--lime);box-shadow:8px 8px 0 var(--lime)}
+  .lead-form input,.lead-form select{width:100%;padding:15px 18px;margin-bottom:14px;
+             border:2px solid var(--black);border-radius:14px;font-size:16px;font-family:'Manrope';background:var(--paper)}
+  .lead-form .btn{width:100%}
+  .note{font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  footer{background:var(--black);color:#8a8a94;padding:26px 0;font-size:13px;border-top:1px solid #2a2a30}
+  @media(max-width:820px){.final .cols{grid-template-columns:1fr}.nav a.link{display:none}.hero-glyphs{display:none}}
+</style>
+</head>
+<body>
+
+<!-- ================= ШАПКА ================= -->
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">Up<em>Day</em></a>
+    <nav>
+      <a class="link" href="#langs">Языки</a>
+      <a class="link" href="#ages">Возраст</a>
+      <a class="link" href="#method">Метод</a>
+      <a class="link" href="#teachers">Педагоги</a>
+    </nav>
+    <a class="btn" href="#lead">Бесплатный урок</a>
+  </div>
+</header>
+
+<!-- ================= ЭКРАН 1. ОФФЕР ================= -->
+<section class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="hero-glyphs">你好<br>こんにちは<br>안녕</div>
+  <div class="wrap">
+    <div class="lang-chips">
+      <span class="chip c1">🇬🇧 английский</span><span class="chip c2">🇨🇳 китайский</span>
+      <span class="chip c3">🇫🇷 французский</span><span class="chip c4">🇯🇵 японский</span>
+      <span class="chip c5">🇰🇷 корейский</span>
+    </div>
+    <h1>5 языков.<br>Дети <span class="hl">от 3 до 17</span>.<br>Один центр рядом с вами.</h1>
+    <p>От первых песенок на английском в 3 года — до ЕГЭ на 80+ и HSK по китайскому.
+       Группы до 6 человек, план на семестр и отчёт родителям каждый месяц.</p>
+    <a class="btn" href="#lead">Подобрать язык и группу бесплатно</a>
+    <div class="trust">
+      <div><b>5 языков</b><span>под одной крышей</span></div>
+      <div><b>от 3 лет</b><span>игровые группы малышей</span></div>
+      <div><b>до 6 чел.</b><span>говорит каждый ребёнок</span></div>
+      <div><b>12 лет</b><span>учим детей языкам</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- бегущая строка -->
+<div class="marquee"><span>HELLO&nbsp;·&nbsp;你好&nbsp;·&nbsp;BONJOUR&nbsp;·&nbsp;こんにちは&nbsp;·&nbsp;안녕하세요&nbsp;·&nbsp;HELLO&nbsp;·&nbsp;你好&nbsp;·&nbsp;BONJOUR&nbsp;·&nbsp;こんにちは&nbsp;·&nbsp;안녕하세요&nbsp;·&nbsp;HELLO&nbsp;·&nbsp;你好&nbsp;·&nbsp;BONJOUR&nbsp;·&nbsp;こんにちは&nbsp;·&nbsp;안녕하세요&nbsp;·&nbsp;</span></div>
+
+<!-- ================= ЭКРАН 2. ЯЗЫКИ (колода карточек) ================= -->
+<section id="langs">
+  <div class="wrap">
+    <span class="sticker">✨ выберите свой язык</span>
+    <h2>Какой язык «заматчится» с вашим ребёнком?</h2>
+    <p class="sub">Не уверены? На бесплатной консультации методист поможет выбрать язык под характер, цели и возраст ребёнка.</p>
+    <div class="deck">
+      <a class="lang" href="#lead"><span class="flag">🇬🇧</span><h3>Английский</h3>
+        <div class="hello">Hello!</div>
+        <p>База, школьная программа, ОГЭ и ЕГЭ на 80+. Самое востребованное направление.</p>
+        <span class="go">Выбрать →</span></a>
+      <a class="lang" href="#lead"><span class="flag">🇨🇳</span><h3>Китайский</h3>
+        <div class="hello">你好!</div>
+        <p>Язык будущей карьеры. Готовим к экзаменам HSK — с иероглифами подружим за 2 месяца.</p>
+        <span class="go">Выбрать →</span></a>
+      <a class="lang" href="#lead"><span class="flag">🇫🇷</span><h3>Французский</h3>
+        <div class="hello">Bonjour!</div>
+        <p>Второй язык в школе или язык «для души». Экзамены DELF, произношение — с 1-го урока.</p>
+        <span class="go">Выбрать →</span></a>
+      <a class="lang" href="#lead"><span class="flag">🇯🇵</span><h3>Японский</h3>
+        <div class="hello">こんにちは!</div>
+        <p>Через аниме и мангу — к хирагане и JLPT. Подростки не пропускают ни одного урока.</p>
+        <span class="go">Выбрать →</span></a>
+      <a class="lang" href="#lead"><span class="flag">🇰🇷</span><h3>Корейский</h3>
+        <div class="hello">안녕하세요!</div>
+        <p>K-pop и дорамы как топливо мотивации. Хангыль читаем уже на третьем занятии.</p>
+        <span class="go">Выбрать →</span></a>
+    </div>
+    <div class="center"><a class="btn btn-dark" href="#lead">Помогите выбрать язык — бесплатная консультация</a></div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 3. ВОЗРАСТ ================= -->
+<section class="ages" id="ages">
+  <div class="wrap">
+    <span class="sticker">🎂 от 3 до 17 лет</span>
+    <h2>Своя программа для каждого возраста</h2>
+    <p class="sub">Ребёнок попадает в группу строго своего возраста и уровня — по итогам бесплатной диагностики.</p>
+    <div class="age-grid">
+      <div class="age"><span class="emo">🧸</span><span class="badge">3–6 лет</span>
+        <h3>Играем на языке</h3>
+        <ul><li>занятия по 30–40 минут</li><li>песни, сказки, движение</li><li>язык впитывается как родной</li></ul></div>
+      <div class="age"><span class="emo">🎒</span><span class="badge">7–10 лет</span>
+        <h3>Школьная база + разговор</h3>
+        <ul><li>твёрдая «5» в дневнике</li><li>чтение и речь с 1-го урока</li><li>турниры и квесты на языке</li></ul></div>
+      <div class="age"><span class="emo">🎧</span><span class="badge">11–14 лет</span>
+        <h3>Уверенный уровень</h3>
+        <ul><li>разговорные клубы</li><li>ВПР, олимпиады, ОГЭ</li><li>контент, который им интересен</li></ul></div>
+      <div class="age"><span class="emo">🎓</span><span class="badge">15–17 лет</span>
+        <h3>Экзамены и цели</h3>
+        <ul><li>ЕГЭ 80+, HSK, DELF, JLPT, TOPIK</li><li>пробники каждый месяц</li><li>план по кодификатору</li></ul></div>
+    </div>
+    <div class="center"><a class="btn" href="#lead">Записаться на бесплатную диагностику</a></div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 4. МЕТОД ================= -->
+<section id="method">
+  <div class="wrap">
+    <span class="sticker">🧭 как это устроено</span>
+    <h2>Не уроки, а маршрут:<br>диагностика → цель → результат</h2>
+    <p class="sub">Вы всегда знаете, чему учится ребёнок, зачем — и что уже получается.</p>
+    <div class="steps">
+      <div class="step"><span class="num">01</span><h3>Бесплатная диагностика</h3>
+        <p>Определяем уровень и пробелы, для малышей — игровое знакомство. Честная картина, даже если не останетесь у нас.</p></div>
+      <div class="step"><span class="num">02</span><h3>План на семестр</h3>
+        <p>Цель, контрольные точки, сроки. Для выпускников — план по кодификатору экзамена.</p></div>
+      <div class="step"><span class="num">03</span><h3>Отчёт каждый месяц</h3>
+        <p>Что прошли, что получается, над чем работаем. Плюс открытые уроки для родителей 2 раза в год.</p></div>
+    </div>
+    <div class="center"><a class="btn btn-dark" href="#lead">Получить план для моего ребёнка</a></div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 5. ПЕДАГОГИ ================= -->
+<section class="teachers" id="teachers">
+  <div class="wrap">
+    <span class="sticker">🏅 1 из 12 кандидатов</span>
+    <h2>Педагоги, которых мы отбирали строже, чем ЕГЭ</h2>
+    <p class="sub">Тест по методике, открытый урок, стажировка. Средний стаж — 8 лет. Для малышей — педагоги с дошкольной специализацией.</p>
+    <div class="t-grid">
+      <!-- ФОТО: замените эмодзи-блок на <img src="..."> с реальным фото -->
+      <div class="t-card"><div class="t-photo">👩‍🏫</div><div class="t-body">
+        <h3>Имя Фамилия</h3><div class="role">Английский · ЕГЭ 80+ · стаж 11 лет</div>
+        <p>CELTA, эксперт по проверке ЕГЭ. Средний балл учеников — 86.</p>
+        <blockquote>«Экзамен — это техника. Технике можно научить любого».</blockquote></div></div>
+      <div class="t-card"><div class="t-photo">👨‍🏫</div><div class="t-body">
+        <h3>Имя Фамилия</h3><div class="role">Китайский и японский · HSK, JLPT · стаж 9 лет</div>
+        <p>Стажировки в Пекине и Осаке. Иероглифы через ассоциации — дети запоминают их как комиксы.</p>
+        <blockquote>«Сложный язык — это просто язык, который неправильно объясняли».</blockquote></div></div>
+      <div class="t-card"><div class="t-photo">👩‍🏫</div><div class="t-body">
+        <h3>Имя Фамилия</h3><div class="role">Малыши 3–6 лет · все языки · стаж 7 лет</div>
+        <p>Дошкольный педагог + лингвист. Дети сами напоминают родителям, что «сегодня занятие».</p>
+        <blockquote>«В 3 года язык не учат — в него играют. И он остаётся навсегда».</blockquote></div></div>
+    </div>
+    <div class="center"><a class="btn" href="#lead">Познакомиться с педагогом на пробном уроке</a></div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 6. РЕЗУЛЬТАТЫ ================= -->
+<section id="cases">
+  <div class="wrap">
+    <span class="sticker">📈 было → стало</span>
+    <h2>Родители рассказывают честнее, чем мы</h2>
+    <p class="sub">Реальные истории учеников — с цифрами и без прикрас.</p>
+    <div class="case-grid">
+      <div class="case"><div class="delta">42 → <b>86 баллов ЕГЭ</b> 🇬🇧</div>
+        <p>Аня, 11 класс. Пришла в октябре с уровнем A2, за 8 месяцев дошла до 86 баллов и бюджета.</p>
+        <blockquote>«План с контрольными точками успокоил и нас, и дочь». — мама Ани</blockquote></div>
+      <div class="case"><div class="delta">С нуля → <b>HSK 2 за год</b> 🇨🇳</div>
+        <p>Тимур, 13 лет. Начал китайский «из любопытства» — через год сдал международный экзамен.</p>
+        <blockquote>«Сын рисует иероглифы даже на полях тетрадей по математике». — папа Тимура</blockquote></div>
+      <div class="case"><div class="delta">3 года → <b>поёт на двух языках</b> 🇫🇷</div>
+        <p>Соня пришла в 3 года в игровую группу. В 5 — понимает простую речь и поёт песенки на английском и французском.</p>
+        <blockquote>«Она думает, что просто ходит играть. А мы видим, как это работает». — мама Сони</blockquote></div>
+    </div>
+    <div class="center"><a class="btn btn-dark" href="#lead">Хочу разобрать ситуацию моего ребёнка</a></div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 7. ГАРАНТИИ + FAQ ================= -->
+<section class="ages" id="faq">
+  <div class="wrap">
+    <span class="sticker">🛡 без риска</span>
+    <h2>Гарантии и честные ответы</h2>
+    <p class="sub">Первый урок — бесплатно. Не подошло в первый месяц — вернём деньги за оставшиеся занятия.</p>
+    <details open><summary>С какого возраста можно начинать?</summary>
+      <p>С 3 лет — в игровые группы по 30–40 минут. В этом возрасте язык усваивается естественно, как родной.</p></details>
+    <details><summary>Как выбрать язык, если ребёнок не определился?</summary>
+      <p>Приходите на бесплатную консультацию: методист учтёт возраст, характер и цели — и предложит 1–2 варианта. Можно посетить пробные уроки по разным языкам.</p></details>
+    <details><summary>Сколько стоят занятия?</summary>
+      <p>От X ₽ за занятие в группе — зависит от языка, возраста и формата. Точную цену назовём после бесплатной диагностики.</p></details>
+    <details><summary>Что, если ребёнок пропустит занятие?</summary>
+      <p>Материалы урока и конспект — всегда, при болезни — бесплатная отработка в течение недели.</p></details>
+    <details><summary>Как я пойму, что есть прогресс?</summary>
+      <p>Ежемесячный отчёт + открытые уроки 2 раза в год. Для экзаменационных групп — пробники каждый месяц.</p></details>
+    <div class="center"><a class="btn btn-ghost" href="https://wa.me/70000000000">Задать вопрос методисту в WhatsApp</a></div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 8. ЗАЯВКА ================= -->
+<section class="final" id="lead">
+  <div class="blob b1" style="opacity:.35"></div>
+  <div class="wrap cols">
+    <div>
+      <h2>Первый шаг — <span class="hl">бесплатный</span></h2>
+      <p class="sub">Перезвоним за 15 минут, по
