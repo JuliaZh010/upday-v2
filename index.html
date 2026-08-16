@@ -297,4 +297,258 @@
   <div class="wrap">
     <span class="sticker">🧭 как это устроено</span>
     <h2>Не уроки, а маршрут:<br>диагностика → цель → результат</h2>
-    <p class="sub">В
+    <p class="sub">Вы всегда знаете, чему учится ребёнок, зачем — и что уже получается.</p>
+    <div class="steps">
+      <div class="step"><span class="num">01</span><h3>Бесплатная диагностика</h3>
+        <p>Определяем уровень и пробелы, для малышей — игровое знакомство. Честная картина, даже если не останетесь у нас.</p></div>
+      <div class="step"><span class="num">02</span><h3>План на семестр</h3>
+        <p>Цель, контрольные точки, сроки. Для выпускников — план по кодификатору экзамена.</p></div>
+      <div class="step"><span class="num">03</span><h3>Отчёт каждый месяц</h3>
+        <p>Что прошли, что получается, над чем работаем. Плюс открытые уроки для родителей 2 раза в год.</p></div>
+    </div>
+    <div class="center"><a class="btn btn-dark" href="#lead">Получить план для моего ребёнка</a></div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 5. ЦЕНЫ ================= -->
+<section id="prices">
+  <div class="wrap">
+    <span class="sticker">💳 прозрачно и без сюрпризов</span>
+    <h2>Цены: платите за результат,<br>а не за «часы в журнале»</h2>
+    <p class="sub">Стоимость одинакова для всех 5 языков. Первое занятие — бесплатно на любом формате.</p>
+    <div class="price-grid">
+
+      <div class="price">
+        <h3>🧸 Малыши</h3><div class="fmt">Группа до 6 · 3–6 лет · 30–40 мин</div>
+        <div class="cost">от 700 ₽ <small>/ занятие</small></div>
+        <div class="month">≈ 5 600 ₽ / месяц (8 занятий)</div>
+        <ul><li>игровой формат, песни, сказки</li><li>2 раза в неделю</li><li>отчёт родителям каждый месяц</li></ul>
+        <a class="btn btn-ghost" href="#schedule">Смотреть группы</a>
+      </div>
+
+      <div class="price hit">
+        <span class="hit-badge">выбирают чаще</span>
+        <h3>🎒 Группа</h3><div class="fmt">До 6 человек · 7–17 лет · 60–80 мин</div>
+        <div class="cost">от 900 ₽ <small>/ занятие</small></div>
+        <div class="month">≈ 7 200 ₽ / месяц (8 занятий)</div>
+        <ul><li>говорит каждый — группа до 6</li><li>план на семестр + пробники</li><li>отработка пропусков по болезни</li></ul>
+        <a class="btn btn-dark" href="#schedule">Смотреть группы</a>
+      </div>
+
+      <div class="price">
+        <h3>⚡ Мини-группа</h3><div class="fmt">2–3 человека · любой возраст</div>
+        <div class="cost">от 1 400 ₽ <small>/ занятие</small></div>
+        <div class="month">≈ 11 200 ₽ / месяц (8 занятий)</div>
+        <ul><li>максимум разговорной практики</li><li>гибкий темп под учеников</li><li>можно собрать свою мини-группу</li></ul>
+        <a class="btn btn-ghost" href="#lead">Уточнить места</a>
+      </div>
+
+      <div class="price">
+        <h3>🎯 Индивидуально</h3><div class="fmt">1 на 1 с педагогом · любой возраст</div>
+        <div class="cost">от 2 000 ₽ <small>/ занятие</small></div>
+        <div class="month">график и интенсивность — под вас</div>
+        <ul><li>ЕГЭ 80+, HSK, DELF, JLPT, TOPIK</li><li>старт с любого уровня и даты</li><li>максимальная скорость прогресса</li></ul>
+        <a class="btn btn-ghost" href="#lead">Подобрать педагога</a>
+      </div>
+
+    </div>
+    <div class="price-note">💡 <b>Скидки:</b> −10% при оплате семестра · −5% за второго ребёнка или второй язык.
+      Пропуски по болезни отрабатываем бесплатно. Точную цену вашей программы назовём после бесплатной диагностики.</div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 6. РАСПИСАНИЕ (активное) ================= -->
+<section class="ages" id="schedule">
+  <div class="wrap">
+    <span class="sticker">📅 наборы открыты</span>
+    <h2>Найдите свою группу за 10 секунд</h2>
+    <p class="sub">Выберите язык и возраст — покажем группы, в которых есть места прямо сейчас.</p>
+
+    <div class="filters">
+      <div>
+        <span class="f-label">ЯЗЫК</span>
+        <div class="f-row" id="langFilter">
+          <button class="f-chip active" data-lang="en">🇬🇧 Английский</button>
+          <button class="f-chip" data-lang="zh">🇨🇳 Китайский</button>
+          <button class="f-chip" data-lang="fr">🇫🇷 Французский</button>
+          <button class="f-chip" data-lang="ja">🇯🇵 Японский</button>
+          <button class="f-chip" data-lang="ko">🇰🇷 Корейский</button>
+        </div>
+      </div>
+      <div>
+        <span class="f-label">ВОЗРАСТ РЕБЁНКА</span>
+        <div class="f-row" id="ageFilter">
+          <button class="f-chip" data-age="3-6">🧸 3–6 лет</button>
+          <button class="f-chip active" data-age="7-10">🎒 7–10 лет</button>
+          <button class="f-chip" data-age="11-14">🎧 11–14 лет</button>
+          <button class="f-chip" data-age="15-17">🎓 15–17 лет</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="sched-grid" id="schedGrid"><!-- группы рендерит JS --></div>
+
+    <div class="sched-empty" id="schedEmpty">
+      <p>😔 В этой комбинации сейчас нет открытых групп.<br>
+         Оставьте заявку — <b>откроем новую группу</b> или предложим ближайший вариант.</p>
+      <a class="btn" href="#lead">Оставить заявку на группу</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 7. ПЕДАГОГИ ================= -->
+<section class="teachers" id="teachers">
+  <div class="wrap">
+    <span class="sticker">🏅 1 из 12 кандидатов</span>
+    <h2>Педагоги, которых мы отбирали строже, чем ЕГЭ</h2>
+    <p class="sub">Тест по методике, открытый урок, стажировка. Средний стаж — 8 лет. Для малышей — педагоги с дошкольной специализацией.</p>
+    <div class="t-grid">
+      <!-- ФОТО: замените эмодзи-блок на <img src="..."> с реальным фото -->
+      <div class="t-card"><div class="t-photo">👩‍🏫</div><div class="t-body">
+        <h3>Имя Фамилия</h3><div class="role">Английский · ЕГЭ 80+ · стаж 11 лет</div>
+        <p>CELTA, эксперт по проверке ЕГЭ. Средний балл учеников — 86.</p>
+        <blockquote>«Экзамен — это техника. Технике можно научить любого».</blockquote></div></div>
+      <div class="t-card"><div class="t-photo">👨‍🏫</div><div class="t-body">
+        <h3>Имя Фамилия</h3><div class="role">Китайский и японский · HSK, JLPT · стаж 9 лет</div>
+        <p>Стажировки в Пекине и Осаке. Иероглифы через ассоциации — дети запоминают их как комиксы.</p>
+        <blockquote>«Сложный язык — это просто язык, который неправильно объясняли».</blockquote></div></div>
+      <div class="t-card"><div class="t-photo">👩‍🏫</div><div class="t-body">
+        <h3>Имя Фамилия</h3><div class="role">Малыши 3–6 лет · все языки · стаж 7 лет</div>
+        <p>Дошкольный педагог + лингвист. Дети сами напоминают родителям, что «сегодня занятие».</p>
+        <blockquote>«В 3 года язык не учат — в него играют. И он остаётся навсегда».</blockquote></div></div>
+    </div>
+    <div class="center"><a class="btn" href="#lead">Познакомиться с педагогом на пробном уроке</a></div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 8. РЕЗУЛЬТАТЫ ================= -->
+<section id="cases">
+  <div class="wrap">
+    <span class="sticker">📈 было → стало</span>
+    <h2>Родители рассказывают честнее, чем мы</h2>
+    <p class="sub">Реальные истории учеников — с цифрами и без прикрас.</p>
+    <div class="case-grid">
+      <div class="case"><div class="delta">42 → <b>86 баллов ЕГЭ</b> 🇬🇧</div>
+        <p>Аня, 11 класс. Пришла в октябре с уровнем A2, за 8 месяцев дошла до 86 баллов и бюджета.</p>
+        <blockquote>«План с контрольными точками успокоил и нас, и дочь». — мама Ани</blockquote></div>
+      <div class="case"><div class="delta">С нуля → <b>HSK 2 за год</b> 🇨🇳</div>
+        <p>Тимур, 13 лет. Начал китайский «из любопытства» — через год сдал международный экзамен.</p>
+        <blockquote>«Сын рисует иероглифы даже на полях тетрадей по математике». — папа Тимура</blockquote></div>
+      <div class="case"><div class="delta">3 года → <b>поёт на двух языках</b> 🇫🇷</div>
+        <p>Соня пришла в 3 года в игровую группу. В 5 — понимает простую речь и поёт песенки на английском и французском.</p>
+        <blockquote>«Она думает, что просто ходит играть. А мы видим, как это работает». — мама Сони</blockquote></div>
+    </div>
+    <div class="center"><a class="btn btn-dark" href="#lead">Хочу разобрать ситуацию моего ребёнка</a></div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 9. ГАРАНТИИ + FAQ ================= -->
+<section class="ages" id="faq">
+  <div class="wrap">
+    <span class="sticker">🛡 без риска</span>
+    <h2>Гарантии и честные ответы</h2>
+    <p class="sub">Первый урок — бесплатно. Не подошло в первый месяц — вернём деньги за оставшиеся занятия.</p>
+    <details open><summary>С какого возраста можно начинать?</summary>
+      <p>С 3 лет — в игровые группы по 30–40 минут. В этом возрасте язык усваивается естественно, как родной.</p></details>
+    <details><summary>Как выбрать язык, если ребёнок не определился?</summary>
+      <p>Приходите на бесплатную консультацию: методист учтёт возраст, характер и цели — и предложит 1–2 варианта. Можно посетить пробные уроки по разным языкам.</p></details>
+    <details><summary>Сколько стоят занятия?</summary>
+      <p>От 700 ₽ за занятие в группе — зависит от языка, возраста и формата. Все тарифы — в разделе «Цены» выше. Точную цену вашей программы назовём после бесплатной диагностики.</p></details>
+    <details><summary>Что, если ребёнок пропустит занятие?</summary>
+      <p>Материалы урока и конспект — всегда, при болезни — бесплатная отработка в течение недели.</p></details>
+    <details><summary>Как я пойму, что есть прогресс?</summary>
+      <p>Ежемесячный отчёт + открытые уроки 2 раза в год. Для экзаменационных групп — пробники каждый месяц.</p></details>
+    <div class="center"><a class="btn btn-ghost" href="https://wa.me/70000000000">Задать вопрос методисту в WhatsApp</a></div>
+  </div>
+</section>
+
+<!-- ================= ЭКРАН 10. ЗАЯВКА ================= -->
+<section class="final" id="lead">
+  <div class="blob b1" style="opacity:.35"></div>
+  <div class="wrap cols">
+    <div>
+      <h2>Первый шаг — <span class="hl">бесплатный</span></h2>
+      <p class="sub">Перезвоним за 15 минут, поможем выбрать язык, определим уровень и подберём группу.
+         Никаких навязчивых продаж — просто честная картина и план.</p>
+      <p style="color:#cfcfd6;font-size:15px">📍 г. ______, ул. ______, д. __<br>
+         📞 +7 (___) ___-__-__ &nbsp;·&nbsp; 🕐 Пн–Сб, 9:00–20:00</p>
+    </div>
+    <form class="lead-form" action="https://formspree.io/f/ВАШ_ID" method="POST">
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="tel" name="phone" placeholder="Телефон" required>
+      <select name="lang" required>
+        <option value="" disabled selected>Какой язык интересует?</option>
+        <option>🇬🇧 Английский</option><option>🇨🇳 Китайский</option><option>🇫🇷 Французский</option>
+        <option>🇯🇵 Японский</option><option>🇰🇷 Корейский</option><option>Помогите выбрать</option>
+      </select>
+      <select name="age" required>
+        <option value="" disabled selected>Возраст ребёнка</option>
+        <option>3–6 лет</option><option>7–10 лет</option><option>11–14 лет</option><option>15–17 лет</option>
+      </select>
+      <button class="btn" type="submit">Записаться на бесплатный урок</button>
+      <p class="note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© UpDay, 2025 · Центр иностранных языков для детей 3–17 лет · английский · китайский · французский · японский · корейский · Политика конфиденциальности</div>
+</footer>
+
+<script>
+/* ============ ДАННЫЕ ГРУПП — редактируйте только этот массив ============ */
+const GROUPS = [
+  // lang: en|zh|fr|ja|ko · age: 3-6|7-10|11-14|15-17 · spots: свободных мест (0 = набор закрыт)
+  {lang:'en', age:'3-6',   name:'Playtime Kids',      days:'Пн · Ср', time:'17:00–17:40', teacher:'Анна В.',    spots:3, start:'идёт набор'},
+  {lang:'en', age:'3-6',   name:'Little Stars',       days:'Сб',      time:'10:00–10:40', teacher:'Анна В.',    spots:1, start:'старт 5 октября'},
+  {lang:'en', age:'7-10',  name:'School Heroes',      days:'Вт · Чт', time:'16:30–17:30', teacher:'Мария К.',   spots:2, start:'идёт набор'},
+  {lang:'en', age:'7-10',  name:'Bright Readers',     days:'Пн · Ср', time:'18:00–19:00', teacher:'Мария К.',   spots:4, start:'старт 1 октября'},
+  {lang:'en', age:'11-14', name:'Level Up B1',        days:'Вт · Чт', time:'17:40–19:00', teacher:'Дмитрий С.', spots:2, start:'идёт набор'},
+  {lang:'en', age:'15-17', name:'ЕГЭ 80+ · поток 1',  days:'Пн · Ср', time:'19:10–20:30', teacher:'Дмитрий С.', spots:1, start:'идёт набор'},
+  {lang:'en', age:'15-17', name:'ЕГЭ 80+ · поток 2',  days:'Сб',      time:'11:00–13:40', teacher:'Дмитрий С.', spots:0, start:'группа набрана'},
+
+  {lang:'zh', age:'7-10',  name:'Нихао, Китай!',      days:'Пн · Ср', time:'17:00–18:00', teacher:'Олег Т.',    spots:3, start:'идёт набор'},
+  {lang:'zh', age:'11-14', name:'HSK 1–2',            days:'Вт · Чт', time:'18:10–19:30', teacher:'Олег Т.',    spots:2, start:'старт 8 октября'},
+  {lang:'zh', age:'15-17', name:'HSK 3 + ЕГЭ',        days:'Сб',      time:'12:00–14:00', teacher:'Олег Т.',    spots:4, start:'идёт набор'},
+
+  {lang:'fr', age:'3-6',   name:'Les Petits',         days:'Сб',      time:'11:00–11:40', teacher:'Полина М.',  spots:5, start:'идёт набор'},
+  {lang:'fr', age:'7-10',  name:'Bonjour, les amis!', days:'Вт · Чт', time:'16:30–17:30', teacher:'Полина М.',  spots:2, start:'идёт набор'},
+  {lang:'fr', age:'11-14', name:'DELF Juniors A2',    days:'Пн · Ср', time:'18:00–19:20', teacher:'Полина М.',  spots:3, start:'старт 6 октября'},
+
+  {lang:'ja', age:'11-14', name:'Аниме-клуб · старт', days:'Вт · Чт', time:'17:00–18:20', teacher:'Олег Т.',    spots:1, start:'идёт набор'},
+  {lang:'ja', age:'15-17', name:'JLPT N5',            days:'Сб',      time:'14:10–16:10', teacher:'Олег Т.',    spots:4, start:'старт 12 октября'},
+
+  {lang:'ko', age:'11-14', name:'Хангыль за месяц',   days:'Пн · Ср', time:'17:00–18:20', teacher:'Кира Л.',    spots:2, start:'идёт набор'},
+  {lang:'ko', age:'15-17', name:'K-Talk · TOPIK I',   days:'Вт · Чт', time:'18:30–19:50', teacher:'Кира Л.',    spots:3, start:'идёт набор'},
+];
+
+const LANG_META = {
+  en:{flag:'🇬🇧', name:'Английский'}, zh:{flag:'🇨🇳', name:'Китайский'},
+  fr:{flag:'🇫🇷', name:'Французский'}, ja:{flag:'🇯🇵', name:'Японский'},
+  ko:{flag:'🇰🇷', name:'Корейский'}
+};
+
+/* ============ ЛОГИКА ФИЛЬТРА ============ */
+let curLang = 'en', curAge = '7-10';
+const grid = document.getElementById('schedGrid');
+const empty = document.getElementById('schedEmpty');
+
+function spotsBadge(n){
+  if(n === 0) return '<span class="g-spots full">группа набрана</span>';
+  if(n <= 2)  return `<span class="g-spots few">🔥 осталось ${n} ${n===1?'место':'места'}</span>`;
+  return `<span class="g-spots ok">свободно ${n} мест${n===3||n===4?'а':''}</span>`;
+}
+
+function render(){
+  const items = GROUPS.filter(g => g.lang === curLang && g.age === curAge);
+  grid.innerHTML = items.map(g => `
+    <div class="group">
+      <div class="g-top"><span class="g-lang">${LANG_META[g.lang].flag}</span>${spotsBadge(g.spots)}</div>
+      <h4>${g.name}</h4>
+      <div class="g-time">${g.days} · ${g.time}</div>
+      <div class="g-meta">Педагог: ${g.teacher} · ${g.start}</div>
+      ${g.spots > 0
+        ? `<a class="btn" href="#lead" onclick="prefill('${g.lang}','${g.age}')">Забронировать место</a>`
+        : `<a class="btn btn-ghost" href="#lead" onclick="prefill('${g.lang}','${g.age}')">В лист ожидания</a>`}
+    </div>`).join('');
+  grid.style.display = items.length ? 'gr
